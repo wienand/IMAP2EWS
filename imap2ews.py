@@ -74,16 +74,16 @@ def parse_command_line():
     group.add_argument('-q', '--quiet', action='store_true', help='no logging except errors')
     parser.add_argument('--echo-ews', action='store_true', help='show debug from using EWS API')
 
-    parser.add_argument('--imap-server', help='IMAP server name')
+    parser.add_argument('--imap-server', required=True, help='IMAP server name')
     parser.add_argument('--imap-port', type=int, default=143, help='IMAP server port')
-    parser.add_argument('--imap-username', help='IMAP username')
-    parser.add_argument('--imap-password', help='IMAP password')
-    parser.add_argument('--imap-inbox', help='IMAP Inbox, e.g. "INBOX.folder A.sub folder B"')
+    parser.add_argument('--imap-username', required=True, help='IMAP username')
+    parser.add_argument('--imap-password', required=True, help='IMAP password')
+    parser.add_argument('--imap-inbox', required=True, help='IMAP Inbox, e.g. "INBOX.folder A.sub folder B"')
 
-    parser.add_argument('--ews-server', help='EWS server name')
-    parser.add_argument('--ews-primary-smtp-address', help='EWS primary smtp address of mailbox')
-    parser.add_argument('--ews-username', help='EWS username')
-    parser.add_argument('--ews-password', help='EWS password')
+    parser.add_argument('--ews-server', required=True, help='EWS server name')
+    parser.add_argument('--ews-primary-smtp-address', required=True, help='EWS primary smtp address of mailbox')
+    parser.add_argument('--ews-username', required=True, help='EWS username')
+    parser.add_argument('--ews-password', required=True, help='EWS password')
 
     return parser.parse_args()
 
